@@ -6,7 +6,7 @@
 #    By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 11:01:32 by psoulie           #+#    #+#              #
-#    Updated: 2025/01/15 16:32:37 by psoulie          ###   ########.fr        #
+#    Updated: 2025/01/16 11:49:12 by psoulie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ MAGENTA = \033[0;35m
 CYAN = \033[0;36m
 COLOUR_RESET = \033[0m
 
-FILES = test				\
+FILES = main				\
+		window_management	\
 
 SRCSDIR = SRCS/
 ODIR = OFILES/
