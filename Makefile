@@ -6,7 +6,7 @@
 #    By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 11:01:32 by psoulie           #+#    #+#              #
-#    Updated: 2025/01/16 11:49:12 by psoulie          ###   ########.fr        #
+#    Updated: 2025/01/17 18:21:03 by psoulie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,27 @@ MAGENTA = \033[0;35m
 CYAN = \033[0;36m
 COLOUR_RESET = \033[0m
 
-FILES = main				\
-		window_management	\
-
-SRCSDIR = SRCS/
-ODIR = OFILES/
+SRCSDIR = srcs/
+ODIR = obj/
 MLXDIR = minilibx-linux/
+UTILS = utils/
+GNL = $(UTILS)get_next_line/
+PRINTF = $(UTILS)ft_printf/
+
+FILES = main										\
+		window										\
+		map											\
+		$(UTILS)ft_strnstr							\
+		$(GNL)get_next_line							\
+		$(GNL)get_next_line_utils		\
+		$(PRINTF)ft_printf							\
+		$(PRINTF)ffiles/ft_countargs				\
+		$(PRINTF)ffiles/ft_putcharn				\
+		$(PRINTF)ffiles/ft_putnbrhexn				\
+		$(PRINTF)ffiles/ft_putnbrn					\
+		$(PRINTF)ffiles/ft_putptrn					\
+		$(PRINTF)ffiles/ft_putstrn					\
+		$(PRINTF)ffiles/ft_putunbrn				\
 
 AMLX = libmlx_Linux.a
 MLXLIB = $(MLXDIR)$(AMLX)
@@ -46,7 +61,7 @@ $(MLXLIB):
 	@make -C $(MLXDIR)
 
 $(ODIR)%.o: $(SRCSDIR)%.c
-	@mkdir -p $(ODIR)
+	@mkdir -p $(ODIR) $(ODIR)$(UTILS) $(ODIR)$(GNL) $(ODIR)$(PRINTF) $(ODIR)$(PRINTF)ffiles/
 	@echo "$(YELLOW)$(BOLD)💾 Compiling $<...$(COLOUR_RESET)"
 	$(CC) $(CFLAGS) -c $< -o $@
 
