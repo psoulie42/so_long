@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 12:05:57 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/17 16:13:31 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/18 15:22:18 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-char	*ft_strnstr(const char *hst, const char *ndl, size_t n)
+char	*ft_strstr(const char *hst, const char *ndl)
 {
 	size_t	i;
 	size_t	j;
@@ -20,15 +20,13 @@ char	*ft_strnstr(const char *hst, const char *ndl, size_t n)
 	if (ndl[0] == 0)
 		return ((char *)hst);
 	i = 0;
-	while (hst[i] && i < n)
+	while (hst[i])
 	{
 		j = 0;
 		if (hst[i] == ndl[j])
 		{
-			while (hst[i + j] && ndl[j] && hst[i + j] == ndl[j] && i + j < n)
-			{
+			while (hst[i + j] && ndl[j] && hst[i + j] == ndl[j] && i)
 				j++;
-			}
 			if (!ndl[j])
 				return ((char *)&hst[i]);
 		}

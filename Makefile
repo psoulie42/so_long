@@ -6,7 +6,7 @@
 #    By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 11:01:32 by psoulie           #+#    #+#              #
-#    Updated: 2025/01/17 18:21:03 by psoulie          ###   ########.fr        #
+#    Updated: 2025/01/18 16:45:07 by psoulie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,18 @@ PRINTF = $(UTILS)ft_printf/
 FILES = main										\
 		window										\
 		map											\
-		$(UTILS)ft_strnstr							\
+		map_parsing									\
+		$(UTILS)ft_strstr							\
 		$(GNL)get_next_line							\
-		$(GNL)get_next_line_utils		\
+		$(GNL)get_next_line_utils					\
 		$(PRINTF)ft_printf							\
 		$(PRINTF)ffiles/ft_countargs				\
-		$(PRINTF)ffiles/ft_putcharn				\
+		$(PRINTF)ffiles/ft_putcharn					\
 		$(PRINTF)ffiles/ft_putnbrhexn				\
 		$(PRINTF)ffiles/ft_putnbrn					\
 		$(PRINTF)ffiles/ft_putptrn					\
 		$(PRINTF)ffiles/ft_putstrn					\
-		$(PRINTF)ffiles/ft_putunbrn				\
+		$(PRINTF)ffiles/ft_putunbrn					\
 
 AMLX = libmlx_Linux.a
 MLXLIB = $(MLXDIR)$(AMLX)
