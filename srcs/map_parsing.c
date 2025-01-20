@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:33:42 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/18 17:44:43 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/20 17:36:16 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	check_p_c_e(char a, int *p, int *c, int *e)
 
 void	check_format(t_data *data, int i)
 {
-	if (data->mapsize->x != (int)ft_strlen(data->map[i]))
+	if (data->mapsize->x != (int)ft_strlen(data->map[i]) - 1)
 		error();
 }

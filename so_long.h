@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:00:28 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/18 17:45:12 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/20 17:50:24 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef struct s_windowsize t_windowsize;
 typedef struct s_mapsize t_mapsize;
+typedef struct s_collectibles t_collectibles;
 
 typedef struct s_data
 {
@@ -27,6 +28,7 @@ typedef struct s_data
 	char			**map;
 	t_windowsize	*windowsize;
 	t_mapsize		*mapsize;
+	t_collectibles	*col;
 }				t_data;
 
 typedef struct s_windowsize
@@ -43,9 +45,22 @@ typedef struct s_mapsize
 	t_data	*data;
 }				t_mapsize;
 
+typedef struct s_collectibles
+{
+	int		nb;
+	int		found;
+	t_data	*data;
+}				t_collectibles;
+
+int		**init_checker(t_data *data);
 int		*test(t_data *data);
+int		find_exit(t_data *data, int x, int y, int ***checked);
 int		open_map_file(char *map);
 int		map_size_y(char *file);
+int		path_check(t_data *data, int x, int y, int ***checked);
+int		find_start(t_data *data);
+int		player_pos_x(t_data *data);
+int		player_pos_y(t_data *data);
 char	*ft_strstr(const char *hst, const char *ndl);
 void	check_char(char c);
 void	check_bounds(t_data *data, int i, int j);

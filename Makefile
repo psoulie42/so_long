@@ -6,7 +6,7 @@
 #    By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 11:01:32 by psoulie           #+#    #+#              #
-#    Updated: 2025/01/18 16:45:07 by psoulie          ###   ########.fr        #
+#    Updated: 2025/01/20 16:52:55 by psoulie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ FILES = main										\
 		window										\
 		map											\
 		map_parsing									\
+		map_feasability								\
+		map_player_pos								\
 		$(UTILS)ft_strstr							\
 		$(GNL)get_next_line							\
 		$(GNL)get_next_line_utils					\

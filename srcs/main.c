@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 09:59:31 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/18 17:20:37 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:46:17 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	data.mapsize = malloc(sizeof(t_mapsize));
 	data.windowsize = malloc(sizeof(t_windowsize));
+	data.col = malloc(sizeof(t_collectibles));
 	data.windowsize->y = 2500;
 	if (ac != 2)
 		error();

@@ -6,11 +6,35 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:16:58 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/18 17:45:06 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/20 17:50:11 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int	collectibles(t_data *data)
+{
+	int		nb;
+	int		i;
+	int		j;
+	char	**map;
+
+	nb = 0;
+	map = data->map;
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				nb++;
+			j++;
+		}
+		i++;
+	}
+	return (nb);
+}
 
 void	parse_map(t_data *data)
 {
@@ -90,9 +114,11 @@ int	map_size_y(char *file)
 
 void	map_init(t_data *data, char *file)
 {
-	int		fd;
-	int		i;
+	int	fd;
+	int	i;
+	int	**checker;
 
+	data->col->found = 0;
 	data->mapsize->y = map_size_y(file);
 	data->map = (char **)malloc(data->mapsize->y * (sizeof(char *)));
 	fd = open_map_file(file);
@@ -106,5 +132,9 @@ void	map_init(t_data *data, char *file)
 	}
 	data->map[i] = NULL;
 	data->mapsize->x = ft_strlen(data->map[0]) - 1;
+	data->col->nb = collectibles(data);
 	parse_map(data);
+	checker = init_checker(data);
+	if (!path_check(data, player_pos_x(data), player_pos_y(data), &checker))
+		error();
 }
