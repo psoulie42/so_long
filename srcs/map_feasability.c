@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:42:59 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/20 18:41:28 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/21 16:17:51 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	**init_checker(t_data *data)
 	int	**tab;
 
 	i = 0;
-	tab = malloc(data->mapsize->y * (sizeof(int)));
+	tab = (int **)malloc((data->mapsize->y) * (sizeof(int *)));
 	while (i < data->mapsize->y)
 	{
-		tab[i] = malloc(data->mapsize->x * sizeof(int));
+		tab[i] = (int *)malloc((data->mapsize->x) * sizeof(int));
 		j = 0;
 		while (j < data->mapsize->x)
 		{
@@ -32,22 +32,6 @@ int	**init_checker(t_data *data)
 		i++;
 	}
 	return (tab);
-}
-
-int	find_start(t_data *data)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j] && data->map[i][j] != 'P')
-			j++;
-		i++;
-	}
-	return (i);
 }
 
 int	find_exit(t_data *data, int x, int y, int ***checked)
