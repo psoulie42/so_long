@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:42:59 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/21 16:17:51 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/22 19:37:40 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	find_exit(t_data *data, int x, int y, int ***checked)
 		exit += find_exit(data, x, y - 1, checked);
 	if (y < data->mapsize->y)
 		exit += find_exit(data, x, y + 1, checked);
+	//free_checker(data, *checked);
 	if (exit)
 		return (1);
 	else
@@ -78,10 +79,11 @@ int	path_check(t_data *data, int x, int y, int ***checked)
 		path_check(data, x, y - 1, checked);
 	if (y < data->mapsize->y)
 		path_check(data, x, y + 1, checked);
+	//free_checker(data, *checked);
 	if (map[y][x] != 'P')
 		return (data->col->found);
 	else if (data->col->found == data->col->nb)
 		return (*checked = init_checker(data), find_exit(data, x, y, checked));
 	else
-		return (error(), -1);
+		return (error(data, "Unreachable collectible or exit\n"), -1);
 }

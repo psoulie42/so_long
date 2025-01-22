@@ -6,7 +6,7 @@
 #    By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 11:01:32 by psoulie           #+#    #+#              #
-#    Updated: 2025/01/21 16:38:04 by psoulie          ###   ########.fr        #
+#    Updated: 2025/01/22 17:10:38 by psoulie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,12 @@ PRINTF = $(UTILS)ft_printf/
 
 FILES = main										\
 		window										\
+		window2										\
 		map											\
 		map_parsing									\
 		map_feasability								\
-		map_player_pos								\
+		running_player								\
+		program_kill								\
 		$(UTILS)ft_strstr							\
 		$(GNL)get_next_line							\
 		$(GNL)get_next_line_utils					\
