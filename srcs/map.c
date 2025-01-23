@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:16:58 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/22 19:09:39 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:09:03 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	map_init(t_data *data, char *file)
 
 	data->col->found = 0;
 	data->mapsize->y = map_size_y(data, file);
-	data->map = (char **)malloc(data->mapsize->y * (sizeof(char *)));
+	data->map = (char **)malloc((data->mapsize->y + 1) * (sizeof(char *)));
 	fd = open_map_file(data, file);
 	i = 0;
 	while (1)
@@ -139,5 +139,5 @@ void	map_init(t_data *data, char *file)
 	player_pos(data);
 	checker = init_checker(data);
 	if (!path_check(data, data->player_pos->x, data->player_pos->y, &checker))
-		return (error(data, "Impossible map\n"));
+		return (error(data, "Unreachable exit\n"));
 }

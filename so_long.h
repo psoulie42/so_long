@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:00:28 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/22 18:20:51 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:14:58 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_data
 	void			*window;
 	char			**map;
 	int				moves;
+	int				type;
 	t_windowsize	*windowsize;
 	t_mapsize		*mapsize;
 	t_collectibles	*col;
@@ -39,28 +40,28 @@ typedef struct s_windowsize
 {
 	int		x;
 	int		y;
-	t_data	*data;
+	int		allocated;
 }				t_windowsize;
 
 typedef struct s_mapsize
 {
 	int		x;
 	int		y;
-	t_data	*data;
+	int		allocated;
 }				t_mapsize;
 
 typedef struct s_collectibles
 {
 	int		nb;
 	int		found;
-	t_data	*data;
+	int		allocated;
 }				t_collectibles;
 
 typedef struct s_player_pos
 {
 	int		x;
 	int		y;
-	t_data	data;
+	int		allocated;
 }				t_player_pos;
 
 int		**init_checker(t_data *data);
@@ -85,14 +86,15 @@ void	error(t_data *data, char *str);
 void	data_init(t_data *data, char *file);
 void	image(t_data *data, int posx, int posy, void *img_ptr);
 void	window_init(t_data *data);
-void	walls_init(t_data *data);
-void	collectibles_init(t_data *data);
-void	background_init(t_data *data);
-void	exit_init(t_data *data);
-void	player_init(t_data *data);
+void	walls_init(t_data *data, char *dir);
+void	collectibles_init(t_data *data, char *dir);
+void	background_init(t_data *data, char *dir);
+void	exit_init(t_data *data, char *dir);
+void	player_init(t_data *data, char *dir);
 void	player_move(t_data *data, int key);
 void	print_moves(t_data *data, int end);
 void	p_c_e_kill(t_data *data, int player, int col, int ex);
 void	free_checker(t_data *data, int **tab);
+void	check_image(t_data *data, char *img);
 
 #endif
