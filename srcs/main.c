@@ -6,7 +6,7 @@
 /*   By: psoulie <psoulie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 09:59:31 by psoulie           #+#    #+#             */
-/*   Updated: 2025/01/23 17:01:52 by psoulie          ###   ########.fr       */
+/*   Updated: 2025/01/27 14:32:10 by psoulie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	data_init(t_data *data, char *file)
 	map_init(data, file);
 	data->col->found = 0;
 	data->moves = 0;
-	data->windowsize->x = data->mapsize->x * 480;
-	data->windowsize->y = data->mapsize->y * 480;
+	data->windowsize->x = data->mapsize->x * 32;
+	data->windowsize->y = data->mapsize->y * 32;
 	data->window = mlx_new_window(data->mlx, data->windowsize->x,
 		data->windowsize->y, "so_long");
 	window_init(data);
